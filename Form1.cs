@@ -14,6 +14,7 @@ namespace LogViewer
     public partial class Form1 : Form
     {
         private ArrayList alLogLines = new ArrayList();
+        private int LineToStartSearching;
 
         public Form1()
         {
@@ -39,6 +40,21 @@ namespace LogViewer
         private void mainSelectedIndexChanged(object sender, EventArgs e)
         {
             DisplayDetailLine();
+        }
+
+        private void txLogFileName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            Find();
+        }
+
+        private void btnFindNext_Click(object sender, EventArgs e)
+        {
+            FindNext();
         }
     }
 }

@@ -29,16 +29,19 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.txDetails = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txLogFileName = new System.Windows.Forms.TextBox();
-            this.btnBrowseFile = new System.Windows.Forms.Button();
-            this.lbMainLog = new System.Windows.Forms.ListBox();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnBrowseFile = new System.Windows.Forms.Button();
+            this.txLogFileName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.lbMainLog = new System.Windows.Forms.ListBox();
+            this.txDetails = new System.Windows.Forms.TextBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txFind = new System.Windows.Forms.TextBox();
+            this.btnFind = new System.Windows.Forms.Button();
+            this.btnFindNext = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -62,16 +65,6 @@
             this.tabControl1.Size = new System.Drawing.Size(1334, 659);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.LightGray;
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1326, 633);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Configuration";
-            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.LightGray;
@@ -94,6 +87,9 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnFindNext);
+            this.splitContainer1.Panel1.Controls.Add(this.btnFind);
+            this.splitContainer1.Panel1.Controls.Add(this.txFind);
             this.splitContainer1.Panel1.Controls.Add(this.btnUpdate);
             this.splitContainer1.Panel1.Controls.Add(this.btnBrowseFile);
             this.splitContainer1.Panel1.Controls.Add(this.txLogFileName);
@@ -105,6 +101,47 @@
             this.splitContainer1.Size = new System.Drawing.Size(1320, 627);
             this.splitContainer1.SplitterDistance = 32;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(3, 4);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(92, 23);
+            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnBrowseFile
+            // 
+            this.btnBrowseFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowseFile.Location = new System.Drawing.Point(811, 3);
+            this.btnBrowseFile.Name = "btnBrowseFile";
+            this.btnBrowseFile.Size = new System.Drawing.Size(36, 23);
+            this.btnBrowseFile.TabIndex = 2;
+            this.btnBrowseFile.Text = "...";
+            this.btnBrowseFile.UseVisualStyleBackColor = true;
+            this.btnBrowseFile.Click += new System.EventHandler(this.btnBrowseFile_Click);
+            // 
+            // txLogFileName
+            // 
+            this.txLogFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txLogFileName.Location = new System.Drawing.Point(176, 4);
+            this.txLogFileName.Name = "txLogFileName";
+            this.txLogFileName.Size = new System.Drawing.Size(629, 22);
+            this.txLogFileName.TabIndex = 1;
+            this.txLogFileName.TextChanged += new System.EventHandler(this.txLogFileName_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(101, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Log File:";
             // 
             // splitContainer2
             // 
@@ -126,47 +163,6 @@
             this.splitContainer2.SplitterDistance = 461;
             this.splitContainer2.TabIndex = 0;
             // 
-            // txDetails
-            // 
-            this.txDetails.BackColor = System.Drawing.Color.Black;
-            this.txDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txDetails.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txDetails.ForeColor = System.Drawing.Color.Yellow;
-            this.txDetails.Location = new System.Drawing.Point(0, 0);
-            this.txDetails.Multiline = true;
-            this.txDetails.Name = "txDetails";
-            this.txDetails.Size = new System.Drawing.Size(1316, 122);
-            this.txDetails.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(101, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Log File:";
-            // 
-            // txLogFileName
-            // 
-            this.txLogFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txLogFileName.Location = new System.Drawing.Point(176, 4);
-            this.txLogFileName.Name = "txLogFileName";
-            this.txLogFileName.Size = new System.Drawing.Size(629, 22);
-            this.txLogFileName.TabIndex = 1;
-            // 
-            // btnBrowseFile
-            // 
-            this.btnBrowseFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowseFile.Location = new System.Drawing.Point(811, 3);
-            this.btnBrowseFile.Name = "btnBrowseFile";
-            this.btnBrowseFile.Size = new System.Drawing.Size(36, 23);
-            this.btnBrowseFile.TabIndex = 2;
-            this.btnBrowseFile.Text = "...";
-            this.btnBrowseFile.UseVisualStyleBackColor = true;
-            this.btnBrowseFile.Click += new System.EventHandler(this.btnBrowseFile_Click);
-            // 
             // lbMainLog
             // 
             this.lbMainLog.BackColor = System.Drawing.Color.Black;
@@ -181,16 +177,57 @@
             this.lbMainLog.TabIndex = 0;
             this.lbMainLog.SelectedIndexChanged += new System.EventHandler(this.mainSelectedIndexChanged);
             // 
-            // btnUpdate
+            // txDetails
             // 
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(3, 4);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(92, 23);
-            this.btnUpdate.TabIndex = 3;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.txDetails.BackColor = System.Drawing.Color.Black;
+            this.txDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txDetails.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txDetails.ForeColor = System.Drawing.Color.Yellow;
+            this.txDetails.Location = new System.Drawing.Point(0, 0);
+            this.txDetails.Multiline = true;
+            this.txDetails.Name = "txDetails";
+            this.txDetails.Size = new System.Drawing.Size(1316, 122);
+            this.txDetails.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.LightGray;
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1326, 633);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Configuration";
+            // 
+            // txFind
+            // 
+            this.txFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txFind.Location = new System.Drawing.Point(853, 4);
+            this.txFind.Name = "txFind";
+            this.txFind.Size = new System.Drawing.Size(209, 22);
+            this.txFind.TabIndex = 4;
+            // 
+            // btnFind
+            // 
+            this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFind.Location = new System.Drawing.Point(1068, 4);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(46, 23);
+            this.btnFind.TabIndex = 5;
+            this.btnFind.Text = "Find";
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // btnFindNext
+            // 
+            this.btnFindNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFindNext.Location = new System.Drawing.Point(1117, 4);
+            this.btnFindNext.Name = "btnFindNext";
+            this.btnFindNext.Size = new System.Drawing.Size(49, 23);
+            this.btnFindNext.TabIndex = 6;
+            this.btnFindNext.Text = "Next";
+            this.btnFindNext.UseVisualStyleBackColor = true;
+            this.btnFindNext.Click += new System.EventHandler(this.btnFindNext_Click);
             // 
             // Form1
             // 
@@ -229,6 +266,9 @@
         private System.Windows.Forms.ListBox lbMainLog;
         private System.Windows.Forms.TextBox txDetails;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnFindNext;
+        private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.TextBox txFind;
     }
 }
 
