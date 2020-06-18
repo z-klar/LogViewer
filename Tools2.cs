@@ -46,7 +46,7 @@ namespace LogViewer
             for(int i=LineToStartSearching; i<alLogLines.Count; i++)
             {
                 string logLine = Convert.ToString(alLogLines[i]);
-                int n = logLine.IndexOf(stringToFind);
+                int n = logLine.ToLower().IndexOf(stringToFind.ToLower());
                 if(n >= 0) // found
                 {
                     ShowSelectedLine(i);
