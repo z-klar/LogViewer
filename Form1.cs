@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,19 @@ namespace LogViewer
             InitializeComponent();
         }
 
-        private void btnBrowseFile_Click(object sender, EventArgs e)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            Debug.WriteLine(string.Format("Keys:  {0}", keyData));
+            if (keyData == (Keys.O | Keys.Control))
+            {
+                openFile();
+                return true; // indicate that you handled this keystroke
+            }
+            // Call the base class
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void openFile()
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "TXT files (*.txt)|*.txt|All files (*.*)|*.*";
@@ -30,6 +43,11 @@ namespace LogViewer
             {
                 txLogFileName.Text = ofd.FileName;
             }
+            ReadLogFile();
+        }
+        private void btnBrowseFile_Click(object sender, EventArgs e)
+        {
+            openFile();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
