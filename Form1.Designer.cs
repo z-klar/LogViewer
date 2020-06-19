@@ -31,6 +31,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnFindNext = new System.Windows.Forms.Button();
+            this.btnFind = new System.Windows.Forms.Button();
+            this.txFind = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnBrowseFile = new System.Windows.Forms.Button();
             this.txLogFileName = new System.Windows.Forms.TextBox();
@@ -39,9 +42,7 @@
             this.lbMainLog = new System.Windows.Forms.ListBox();
             this.txDetails = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txFind = new System.Windows.Forms.TextBox();
-            this.btnFind = new System.Windows.Forms.Button();
-            this.btnFindNext = new System.Windows.Forms.Button();
+            this.btnFindPrev = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -87,6 +88,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnFindPrev);
             this.splitContainer1.Panel1.Controls.Add(this.btnFindNext);
             this.splitContainer1.Panel1.Controls.Add(this.btnFind);
             this.splitContainer1.Panel1.Controls.Add(this.txFind);
@@ -101,6 +103,36 @@
             this.splitContainer1.Size = new System.Drawing.Size(1320, 627);
             this.splitContainer1.SplitterDistance = 32;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnFindNext
+            // 
+            this.btnFindNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFindNext.Location = new System.Drawing.Point(1171, 4);
+            this.btnFindNext.Name = "btnFindNext";
+            this.btnFindNext.Size = new System.Drawing.Size(49, 23);
+            this.btnFindNext.TabIndex = 6;
+            this.btnFindNext.Text = "Next";
+            this.btnFindNext.UseVisualStyleBackColor = true;
+            this.btnFindNext.Click += new System.EventHandler(this.btnFindNext_Click);
+            // 
+            // btnFind
+            // 
+            this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFind.Location = new System.Drawing.Point(1068, 4);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(46, 23);
+            this.btnFind.TabIndex = 5;
+            this.btnFind.Text = "Find";
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // txFind
+            // 
+            this.txFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txFind.Location = new System.Drawing.Point(853, 4);
+            this.txFind.Name = "txFind";
+            this.txFind.Size = new System.Drawing.Size(209, 22);
+            this.txFind.TabIndex = 4;
             // 
             // btnUpdate
             // 
@@ -199,35 +231,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Configuration";
             // 
-            // txFind
+            // btnFindPrev
             // 
-            this.txFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txFind.Location = new System.Drawing.Point(853, 4);
-            this.txFind.Name = "txFind";
-            this.txFind.Size = new System.Drawing.Size(209, 22);
-            this.txFind.TabIndex = 4;
-            // 
-            // btnFind
-            // 
-            this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFind.Location = new System.Drawing.Point(1068, 4);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(46, 23);
-            this.btnFind.TabIndex = 5;
-            this.btnFind.Text = "Find";
-            this.btnFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
-            // 
-            // btnFindNext
-            // 
-            this.btnFindNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFindNext.Location = new System.Drawing.Point(1117, 4);
-            this.btnFindNext.Name = "btnFindNext";
-            this.btnFindNext.Size = new System.Drawing.Size(49, 23);
-            this.btnFindNext.TabIndex = 6;
-            this.btnFindNext.Text = "Next";
-            this.btnFindNext.UseVisualStyleBackColor = true;
-            this.btnFindNext.Click += new System.EventHandler(this.btnFindNext_Click);
+            this.btnFindPrev.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFindPrev.Location = new System.Drawing.Point(1117, 4);
+            this.btnFindPrev.Name = "btnFindPrev";
+            this.btnFindPrev.Size = new System.Drawing.Size(49, 23);
+            this.btnFindPrev.TabIndex = 7;
+            this.btnFindPrev.Text = "Prev";
+            this.btnFindPrev.UseVisualStyleBackColor = true;
+            this.btnFindPrev.Click += new System.EventHandler(this.btnFindPrev_Click);
             // 
             // Form1
             // 
@@ -269,6 +282,7 @@
         private System.Windows.Forms.Button btnFindNext;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.TextBox txFind;
+        private System.Windows.Forms.Button btnFindPrev;
     }
 }
 

@@ -19,7 +19,7 @@ namespace LogViewer
         private void Find()
         {
             LineToStartSearching = 0;
-            SearchText();
+            SearchText(false);
         }
 
         /// <summary>
@@ -27,10 +27,19 @@ namespace LogViewer
         /// </summary>
         private void FindNext()
         {
-            SearchText();
+            LineToStartSearching++;
+            SearchText(false);
         }
 
-        private void SearchText()
+        /// <summary>
+        /// 
+        /// </summary>
+        private void FindPrev()
+        {
+            LineToStartSearching--;
+            SearchText(true);
+        }
+        private void SearchText(bool back)
         {
             string stringToFind = txFind.Text;
             if(stringToFind.Length == 0)
@@ -43,15 +52,37 @@ namespace LogViewer
                 MessageBox.Show("End of log reached !");
                 return;
             }
-            for(int i=LineToStartSearching; i<alLogLines.Count; i++)
+            if (LineToStartSearching < 0)
             {
-                string logLine = Convert.ToString(alLogLines[i]);
-                int n = logLine.ToLower().IndexOf(stringToFind.ToLower());
-                if(n >= 0) // found
+                MessageBox.Show("Start of log reached !");
+                return;
+            }
+            if (back)
+            {
+                for (int i = LineToStartSearching; i >= 0; i--)
                 {
-                    ShowSelectedLine(i);
-                    LineToStartSearching = i + 1;
-                    return;
+                    string logLine = Convert.ToString(alLogLines[i]);
+                    int n = logLine.ToLower().IndexOf(stringToFind.ToLower());
+                    if (n >= 0) // found
+                    {
+                        ShowSelectedLine(i);
+                        LineToStartSearching = i;
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = LineToStartSearching; i < alLogLines.Count; i++)
+                {
+                    string logLine = Convert.ToString(alLogLines[i]);
+                    int n = logLine.ToLower().IndexOf(stringToFind.ToLower());
+                    if (n >= 0) // found
+                    {
+                        ShowSelectedLine(i);
+                        LineToStartSearching = i;
+                        return;
+                    }
                 }
             }
             MessageBox.Show("Provided string not found !!!");

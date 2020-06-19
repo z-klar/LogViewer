@@ -74,5 +74,10 @@ namespace LogViewer
         {
             FindNext();
         }
+
+        private void btnFindPrev_Click(object sender, EventArgs e)
+        {
+            FindPrev();
+        }
     }
 }
