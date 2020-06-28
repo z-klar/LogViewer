@@ -19,6 +19,7 @@ namespace LogViewer
         private void Find()
         {
             LineToStartSearching = 0;
+            UpdateSearchedTexts();
             SearchText(false);
         }
 
@@ -41,7 +42,7 @@ namespace LogViewer
         }
         private void SearchText(bool back)
         {
-            string stringToFind = txFind.Text;
+            string stringToFind = cbSearchedText.Text;
             if(stringToFind.Length == 0)
             {
                 MessageBox.Show("Please provide a text to search !");
@@ -92,6 +93,47 @@ namespace LogViewer
         {
             lbMainLog.SelectedIndex = line;
             
+        }
+
+        /// <summary>
+        /// Check whether the text in SEARCHED_TEXT box is already in DB
+        /// </summary>
+        private void UpdateSearchedTexts()
+        {
+            string newSearch = cbSearchedText.Text;
+            if(TextNotInDb(newSearch))
+            {
+                AddNewText(newSearch);
+            }
+        }
+
+        private bool TextNotInDb(string text)
+        {
+            for(int i=0; i<noSearchedTexts; i++)
+            {
+                if (searchedTexts[i].Equals(text)) return (false);
+            }
+            return (true);
+        }
+
+        private void AddNewText(string text)
+        {
+            if(noSearchedTexts < SEARCH_DB_CAPACITY)
+            {
+                searchedTexts[noSearchedTexts] = text;
+                noSearchedTexts++;
+            }
+            else
+            {
+                for(int i=1; i< SEARCH_DB_CAPACITY; i++)
+                {
+                    searchedTexts[i - 1] = searchedTexts[i];
+                }
+                searchedTexts[SEARCH_DB_CAPACITY - 1] = text;
+            }
+            cbSearchedText.Items.Clear();
+            for (int i = 0; i < noSearchedTexts; i++) 
+                cbSearchedText.Items.Add(searchedTexts[i]);
         }
     }
 }

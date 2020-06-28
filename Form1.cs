@@ -14,6 +14,10 @@ namespace LogViewer
 {
     public partial class Form1 : Form
     {
+        private const int SEARCH_DB_CAPACITY = 30;
+        private String[] searchedTexts = new string[SEARCH_DB_CAPACITY];
+        private int noSearchedTexts = 0;
+
         private ArrayList alLogLines = new ArrayList();
         private int LineToStartSearching;
 
@@ -24,10 +28,19 @@ namespace LogViewer
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            Debug.WriteLine(string.Format("Keys:  {0}", keyData));
             if (keyData == (Keys.O | Keys.Control))
             {
                 openFile();
+                return true; // indicate that you handled this keystroke
+            }
+            else if (keyData == (Keys.N | Keys.Control))
+            {
+                FindNext();
+                return true; // indicate that you handled this keystroke
+            }
+            else if (keyData == (Keys.P | Keys.Control))
+            {
+                FindPrev();
                 return true; // indicate that you handled this keystroke
             }
             // Call the base class
