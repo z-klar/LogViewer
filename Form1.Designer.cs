@@ -43,6 +43,7 @@
             this.txDetails = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.cbSearchedText = new System.Windows.Forms.ComboBox();
+            this.btnFilter = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -88,6 +89,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnFilter);
             this.splitContainer1.Panel1.Controls.Add(this.cbSearchedText);
             this.splitContainer1.Panel1.Controls.Add(this.btnFindPrev);
             this.splitContainer1.Panel1.Controls.Add(this.btnFindNext);
@@ -243,6 +245,17 @@
             this.cbSearchedText.Size = new System.Drawing.Size(318, 24);
             this.cbSearchedText.TabIndex = 8;
             // 
+            // btnFilter
+            // 
+            this.btnFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilter.Location = new System.Drawing.Point(1229, 4);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(60, 23);
+            this.btnFilter.TabIndex = 9;
+            this.btnFilter.Text = "Filter";
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,6 +297,7 @@
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Button btnFindPrev;
         private System.Windows.Forms.ComboBox cbSearchedText;
+        private System.Windows.Forms.Button btnFilter;
     }
 }
 

@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilterOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterOptions.Designer.cs">
+      <DependentUpon>FilterOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     <Compile Include="Tools2.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="FilterOptions.resx">
+      <DependentUpon>FilterOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

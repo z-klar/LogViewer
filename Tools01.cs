@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,13 +50,45 @@ namespace LogViewer
         private void DisplayBuffer()
         {
             lbMainLog.Items.Clear();
-            foreach (string s in alLogLines) lbMainLog.Items.Add(s);
+            foreach (string s in alLogLines)
+            {
+                if(FilterOk(s)) lbMainLog.Items.Add(s);
+            }
+        }
+
+        private bool FilterOk(string line)
+        {
+            if(filterStrings.Count > 0)
+            {
+                foreach(string s in filterStrings)
+                {
+                    int n = line.ToLower().IndexOf(s.ToLower());
+                    if (n >= 0) return (true);
+                }
+                return (false);
+            }
+            else
+            {
+                return (true);
+            }
         }
 
         private void DisplayDetailLine()
         {
             int i = lbMainLog.SelectedIndex;
-            txDetails.Text = Convert.ToString(alLogLines[i]);
+            txDetails.Text = lbMainLog.SelectedItem.ToString();
         }
+
+        private void FilterOutput(object sender, ProcessNewParamsArgs e)
+        {
+            ArrayList al = e.searchString;
+            filterStrings.Clear();
+            for(int i=0; i<al.Count; i++) filterStrings.Add(al[i]);
+            DisplayBuffer();
+            if (al.Count > 0) btnFilter.BackColor = Color.Red;
+            else btnFilter.BackColor = Color.Transparent;
+            for (int i = 0; i < al.Count; i++) UpdateSearchedTexts(Convert.ToString(al[i]));
+        }
+
     }
 }

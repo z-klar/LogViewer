@@ -11,10 +11,11 @@ C:\DOTNET\DQ\LogViewer\LogViewer\obj\Debug\LogViewer.pdb
 C:\DOTNET\DQ\LogViewer\bin\Debug\LogViewer.exe.config
 C:\DOTNET\DQ\LogViewer\bin\Debug\LogViewer.exe
 C:\DOTNET\DQ\LogViewer\bin\Debug\LogViewer.pdb
-C:\DOTNET\DQ\LogViewer\obj\Debug\LogViewer.csprojAssemblyReference.cache
 C:\DOTNET\DQ\LogViewer\obj\Debug\LogViewer.Form1.resources
 C:\DOTNET\DQ\LogViewer\obj\Debug\LogViewer.Properties.Resources.resources
 C:\DOTNET\DQ\LogViewer\obj\Debug\LogViewer.csproj.GenerateResource.cache
 C:\DOTNET\DQ\LogViewer\obj\Debug\LogViewer.csproj.CoreCompileInputs.cache
 C:\DOTNET\DQ\LogViewer\obj\Debug\LogViewer.exe
 C:\DOTNET\DQ\LogViewer\obj\Debug\LogViewer.pdb
+C:\DOTNET\DQ\LogViewer\obj\Debug\LogViewer.csprojAssemblyReference.cache
+C:\DOTNET\DQ\LogViewer\obj\Debug\LogViewer.FilterOptions.resources

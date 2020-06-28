@@ -17,6 +17,7 @@ namespace LogViewer
         private const int SEARCH_DB_CAPACITY = 30;
         private String[] searchedTexts = new string[SEARCH_DB_CAPACITY];
         private int noSearchedTexts = 0;
+        private ArrayList filterStrings = new ArrayList();
 
         private ArrayList alLogLines = new ArrayList();
         private int LineToStartSearching;
@@ -91,6 +92,13 @@ namespace LogViewer
         private void btnFindPrev_Click(object sender, EventArgs e)
         {
             FindPrev();
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            FilterOptions dlg = new FilterOptions(filterStrings, searchedTexts);
+            dlg.ProcessNewParams += new EventHandler<ProcessNewParamsArgs>(FilterOutput);
+            dlg.Show();
         }
     }
 }

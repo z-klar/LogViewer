@@ -19,7 +19,7 @@ namespace LogViewer
         private void Find()
         {
             LineToStartSearching = 0;
-            UpdateSearchedTexts();
+            UpdateSearchedTexts(cbSearchedText.Text);
             SearchText(false);
         }
 
@@ -98,12 +98,11 @@ namespace LogViewer
         /// <summary>
         /// Check whether the text in SEARCHED_TEXT box is already in DB
         /// </summary>
-        private void UpdateSearchedTexts()
+        private void UpdateSearchedTexts(string text)
         {
-            string newSearch = cbSearchedText.Text;
-            if(TextNotInDb(newSearch))
+            if(TextNotInDb(text))
             {
-                AddNewText(newSearch);
+                AddNewText(text);
             }
         }
 
