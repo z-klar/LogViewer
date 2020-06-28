@@ -223,6 +223,7 @@
             this.txDetails.Location = new System.Drawing.Point(0, 0);
             this.txDetails.Multiline = true;
             this.txDetails.Name = "txDetails";
+            this.txDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txDetails.Size = new System.Drawing.Size(1316, 122);
             this.txDetails.TabIndex = 0;
             // 
